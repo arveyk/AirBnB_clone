@@ -8,12 +8,11 @@ import uuid
 class BaseModel:
     """Defines the class from which other class will be defined"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Init method"""
         self.id = str(uuid.uuid4())
-        self.created_at = str(datetime.datetime.now().isoformat())
-        self.updated_at = str(datetime.datetime.now().isoformat())
-        self.__dict__[__class__] = str(BaseModel.__name__)
+        self.created_at = datetime.datetime.now().isoformat()
+        self.updated_at = datetime.datetime.now().isoformat()
 
     def __str__(self):
         '''prints details about the class'''
@@ -31,4 +30,5 @@ class BaseModel:
 
     def to_dict(self):
         """Returns a dictinary containing all keys/values of __dict__"""
-        return self.__dict__
+        self.__dict__['__class__'] = BaseModel.__name__
+        return dict(self.__dict__)
