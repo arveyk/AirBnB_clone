@@ -3,12 +3,10 @@
 from models.base_model import BaseModel
 import unittest
 
-
 class TestBase(unittest.TestCase):
     """ Test the user class """
     def test_init(self):
         pass
-
 
 if __name__ == '__main__':
     unittest.main()
