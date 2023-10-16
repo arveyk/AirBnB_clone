@@ -8,6 +8,6 @@ class Amenity(BaseModel):
     name = ""
     
     def __init__(self):
-        super().__init__()
+        super().__init__(self)
         pass
 

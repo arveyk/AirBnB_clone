@@ -7,4 +7,7 @@ class State(BaseModel):
     """ States which state a user is in
     """
     name = " "
-    pass
+
+    def __init__(self):
+        """ Child init method"""
+        super()__init__(self)
