@@ -32,22 +32,40 @@ def parse(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """Defines the HolbertonBnB command interpreter.
+    """Defines the HolbertonBnB command interpreter."""
 
-    Attributes:
+    def console(self, line):
+        """ Prints a custom prompt"""
+        if line:
+            print("(hbnb)")
+        else:
+            print("(hbnb)")
+
+    def do_EOF(self, line):
+        """prints a newline when prompt is exited"""
+
+    def console(self, line):
+        """ Prints a custom prompt"""
+        if line:
+            print("(hbnb)")
+        else:
+            print("(hbnb)")
+
+    def do_EOF(self, line):
+        """prints a newline when prompt is exited
+        Attributes:
         prompt (str): The command prompt.
-    """
-
-    prompt = "(hbnb) "
-    __classes = {
-        "BaseModel",
-        "User",
-        "State",
-        "City",
-        "Place",
-        "Amenity",
-        "Review"
-    }
+        """
+        prompt = "(hbnb) "
+        __classes = {
+                "BaseModel",
+                "User",
+                "State",
+                "City",
+                "Place",
+                "Amenity",
+                "Review"
+                }
 
     def emptyline(self):
         """Do nothing upon receiving an empty line."""

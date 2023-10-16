@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """Defines unittests for console.py.
 
 Unittest classes:
@@ -1568,3 +1569,18 @@ class TestHBNBCommand_count(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+=======
+""" unittest module for console programm"""
+import unittest
+from console import Console
+
+
+class TestConsole(unittest.TestCase):
+    """ Test casses for testing console function
+    """
+    pass
+
+
+with patch('sys.stdout', new=StringIO()) as f:
+    HBNBCommand().onecmd("help show")
+>>>>>>> b4ce5c1c752b82ad9481d4415a3ba5b59d9132a5

@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-""" Class State """
-
+""" state class """
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """ Class State """
-    name = ""
+    """ States which state a user is in
+    """
+    name = " "
+    pass
