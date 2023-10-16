@@ -12,5 +12,8 @@ class Amenity(BaseModel):
     name = ""
     
     def __init__(self):
+        """Initializing function/method
+        Args: None
+        Return None
+        """
         super().__init__(self)
-        pass
