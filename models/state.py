@@ -10,4 +10,4 @@ class State(BaseModel):
 
     def __init__(self):
         """ Child init method"""
-        super()__init__(self)
+        super().__init__(self)

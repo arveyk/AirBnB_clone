@@ -11,4 +11,4 @@ class Review(BaseModel):
 
     def __init__(self):
         """ Child class init method"""
-        super()__init__(self)
+        super().__init__(self)
