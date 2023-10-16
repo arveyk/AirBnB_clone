@@ -14,3 +14,5 @@ class User(BaseModel):
     def __init__(self):
         """Initializes the instances/object of the User class
         """
+        super.__init__()
+
