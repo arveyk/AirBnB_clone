@@ -12,4 +12,3 @@ class City(BaseModel):
     def __init__(self):
         """ Init of child class"""
         super().__init__(self)
-
