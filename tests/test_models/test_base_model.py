@@ -7,6 +7,7 @@ import unittest
 class TestBase(unittest.TestCase):
     """ Test the BaseModel class """
     def test_init(self):
+        pass
 
 
 if __name__ == '__main__':

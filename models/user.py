@@ -15,4 +15,3 @@ class User(BaseModel):
         """Initializes the instances/object of the User class
         """
         super.__init__()
-

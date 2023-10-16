@@ -32,9 +32,8 @@ def parse(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """Defines the HolbertonBnB command interpreter.
+    """Defines the HolbertonBnB command interpreter."""
 
-<<<<<<< HEAD
     def console(self, line):
         """ Prints a custom prompt"""
         if line:
@@ -44,30 +43,29 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """prints a newline when prompt is exited"""
-||||||| c2759e1
+
     def console(self, line):
         """ Prints a custom prompt"""
         if line:
             print("(hbnb)")
         else:
             print("(hbnb)")
+
     def do_EOF(self, line):
-        """prints a newline when prompt is exited"""
-=======
-    Attributes:
+        """prints a newline when prompt is exited
+        Attributes:
         prompt (str): The command prompt.
-    """
-
-    prompt = "(hbnb) "
-    __classes = {
-        "BaseModel",
-        "User",
-        "State",
-        "City",
-        "Place",
-        "Amenity",
-        "Review"
-    }
+        """
+        prompt = "(hbnb) "
+        __classes = {
+                "BaseModel",
+                "User",
+                "State",
+                "City",
+                "Place",
+                "Amenity",
+                "Review"
+                }
 
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
@@ -96,39 +94,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """Quit command to exit the program."""
->>>>>>> 274107f6036e506b54022f66b1cf884ac2d4e837
         return True
 
-<<<<<<< HEAD
-    def create(self, line):
-        """crating function"""
-        pass
-
-    def show(self, line):
-        """ displays some message"""
-        pass
-
-    def destroy(self):
-        """ Removes/ deletes objects"""
-        pass
-
-    def all(self):
-        """ Show or does all?"""
-        pass
-
-    def update(self):
-        """ Someting is updated """
-        pass
-
-||||||| c2759e1
-    """
-    def create(self, line):
-    def show(self, line):
-    def destroy(self):
-    def all(self):
-    def update(self):
-    """
-=======
     def do_EOF(self, arg):
         """EOF signal to exit the program."""
         print("")
@@ -256,7 +223,6 @@ class HBNBCommand(cmd.Cmd):
                     obj.__dict__[k] = v
         storage.save()
 
->>>>>>> 274107f6036e506b54022f66b1cf884ac2d4e837
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
