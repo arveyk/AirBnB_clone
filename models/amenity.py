@@ -10,7 +10,7 @@ class Amenity(BaseModel):
         name (str): The name of the amenity.
     """
     name = ""
-    
+
     def __init__(self):
         """Initializing function/method
         Args: None
