@@ -13,7 +13,7 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
         if kwargs is not None:
             for key, value in kwargs.items():
-                if key is not '__class__':
+                if key != '__class__':
                     self.__dict__[key] = value
 
     def __str__(self):
@@ -32,10 +32,13 @@ class BaseModel:
         instance
         Args: no args
         """
+        new_dict = self.__dict__
         created_at = datetime.datetime.now().isoformat()
         updated_at = datetime.datetime.now().isoformat()
-        self.__dict__['__class__'] = BaseModel.__name__
-        return self.__dict__
+        new_dict['__class__'] = BaseModel.__name__
+        new_dict['created_at'] = created_at
+        new_dict['updated_at'] = updated_at
+        return new_dict
 
     def __ne__(self, other):
         """ updates the updated_at if obj changes"""
