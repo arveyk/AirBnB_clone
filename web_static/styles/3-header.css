@@ -1,0 +1,16 @@
+
+header {
+	background: white;
+	height: 70px;
+	width: 100%;
+	border-bottom: 1px #CCCCCC
+	position: fixed;
+	top: 0;
+}
+.log
+{
+
+	left-align: 20px;
+	align-top: center;
+
+}
