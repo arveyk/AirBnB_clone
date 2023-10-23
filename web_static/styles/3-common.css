@@ -5,3 +5,11 @@ body {
 	font-size: 14px;
 	font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+link[rel="icon"]{
+
+	display: block;
+	left-align: 20px;
+	margin: auto;
+	text-align: center;
+
+}

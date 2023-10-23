@@ -1,0 +1,13 @@
+.states {
+	font-size: 14px;
+	font-weight: 400;
+}
+.amenities {
+	font-weight: 600;
+}
+h3, h4 {
+	display: none;
+}
+h3:hover h4:hover {
+	display: block;
+}
