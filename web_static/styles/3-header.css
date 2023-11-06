@@ -9,6 +9,7 @@ header {
 	top: 0;
 }
 .logo {
+	position: relative;
 	display: inline-block;
 	content: url(./images/logo.png);
 	left-align: 20px;
