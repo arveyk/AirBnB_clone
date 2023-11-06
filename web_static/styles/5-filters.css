@@ -1,7 +1,26 @@
-.states {
+.locations h3 {
 	font-size: 14px;
 	font-weight: 400;
 }
-.amenities {
+.locations h3 {
 	font-weight: 600;
+}
+
+.amenities h3 {
+	font-size: 14px;
+	font-weight: 400;
+}
+.amenities h4 {
+	font-weight: 600;
+}
+
+.locations
+{
+	display: inline-block;
+	height: 100%;
+}
+.amenities
+{
+	display: inline-block;
+	height: 100%;
 }

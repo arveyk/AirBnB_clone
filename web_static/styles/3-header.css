@@ -1,4 +1,5 @@
 
+
 header {
 	background: white;
 	height: 70px;
@@ -7,11 +8,10 @@ header {
 	position: fixed;
 	top: 0;
 }
-link[rel="logo"]{
-
-	display: block;
+.logo {
+	display: inline-block;
+	content: url(./images/logo.png);
 	left-align: 20px;
 	float: left;
 	margin: auto;
-
 }

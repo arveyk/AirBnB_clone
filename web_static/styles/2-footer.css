@@ -1,4 +1,4 @@
-
+/* Footer CSS */
 footer {
 	background: #00FF00;
 	height: 70px;
@@ -6,4 +6,8 @@ footer {
 	position: fixed;
 	bottom: 0;
 }
-p {color: #000000; text-align: center;}
+
+footer>p {
+	color: #000000;
+	text-align: center;
+}

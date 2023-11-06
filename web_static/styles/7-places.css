@@ -1,0 +1,16 @@
+.places
+{
+	font-size: 30px;
+	text-align: top;
+	right: 25%;
+}
+
+.places article
+{
+	display: inline-block;
+	width: 390px;
+	padding: 20px;
+	margin: 20px;
+	border: #FF5A5F;
+	font-size: 30px;
+}

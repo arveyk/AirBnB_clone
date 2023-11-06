@@ -3,5 +3,23 @@
 	height: 70px;
 	width: 100%;
 	border: 1px #DDDDDD;
-	border-radius: 4px
+	border-radius: 4px;
+	display: inline-block;
+}
+
+button {
+	position: absolute;
+	display: inline-block;
+	font-size: 18px;
+	background: #FF5A5F;
+	text-color: #FFFFFF;
+	height: 48px;
+	width: 20%;
+	border: 0 0 0 0;
+	border-radius: 4px;
+	border-right: 30px;
+	right: 30px;
+}
+button:hover {
+	background: rgba(255, 90, 95 .9);
 }
