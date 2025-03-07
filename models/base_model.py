@@ -2,7 +2,10 @@
 """ Base model definition"""
 import datetime
 import uuid
+from . import storage
 
+
+storage.save()
 
 class BaseModel:
     """ Base model for other classes"""
@@ -15,6 +18,8 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key != '__class__':
                     self.__dict__[key] = value
+                if key not in self.__dict__:
+                    storage.new(self)                    
 
     def __str__(self):
         """ prints unofficial representation of class"""
@@ -44,3 +49,4 @@ class BaseModel:
         """ updates the updated_at if obj changes"""
         if self.__class__ != other.__class__:
             updated_at = datetime.datetime.now()
+
