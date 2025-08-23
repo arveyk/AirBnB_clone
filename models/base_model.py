@@ -19,8 +19,13 @@ class BaseModel:
                 if key != '__class__':
                     if key == "created_at" or key == "updated_at":
                         self.__dict__[key] = datetime.fromisoformat(value)
+
                     else:
                         self.__dict__[key] = value
+            self.create_at = self.__dict__.get("created_at")
+            self.updated_at = self.__dict__.get("updated_at")
+            self.id = self.__dict__.get("id")
+
 
                 #if key not in self.__dict__:
                 #    storage.new(self)                    
