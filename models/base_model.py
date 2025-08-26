@@ -2,10 +2,8 @@
 """ Base model definition"""
 from datetime import datetime
 import uuid
-#from .__init__ import storage 
+from . import storage 
 
-
-#storage.save()
 
 class BaseModel:
     """ Base model for other classes"""
@@ -23,12 +21,13 @@ class BaseModel:
                     else:
                         self.__dict__[key] = value
             self.create_at = self.__dict__.get("created_at")
-            self.updated_at = self.__dict__.get("updated_at")
             self.id = self.__dict__.get("id")
 
 
                 #if key not in self.__dict__:
                 #    storage.new(self)                    
+        else:
+            storage.new()
 
     def __str__(self):
         """ prints unofficial representation of class"""
@@ -40,6 +39,7 @@ class BaseModel:
     def save(self):
         """ Updates the public instance attr updated at """
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """ Returns dictionary containing all key/values of __dict__ of the
