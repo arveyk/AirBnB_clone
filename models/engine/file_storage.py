@@ -19,15 +19,19 @@ class FileStorage:
 
     def new(self, obj):
         """Set in __objects obj with key <obj_class_name>.id"""
-        #class_name = obj.__class__.__name__
+        # class_name = obj.__class__.__name__
         class_name = obj.__class__.__name__
         FileStorage.__objects["{}.{}".format(class_name, obj.id)] = obj
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
-        #odict = FileStorage.__objects
-        #objdict = {objKey: odict[objKey].to_dict() for objKey in odict.keys()}
-        objdict = {objKey: FileStorage.__objects[objKey].to_dict() for objKey in FileStorage.__objects.keys()}
+        # odict = FileStorage.__objects
+        # objdict = {
+        # objKey: odict[objKey].to_dict() for objKey in odict.keys()}
+        objdict = {
+                objKey: FileStorage.__objects[objKey].to_dict()
+                for objKey in FileStorage.__objects.keys()
+                }
         with open(FileStorage.__file_path, "w") as f:
             json.dump(objdict, f)
 
@@ -46,7 +50,7 @@ class FileStorage:
 
                 for objAttributes in objdict.values():
                     cls_name = objAttributes["__class__"]
-                    #del objAttributes["__class__"]
+                    # del objAttributes["__class__"]
                     match cls_name:
                         case "Amenity":
                             self.new(Amenity(**objAttributes))
