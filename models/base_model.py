@@ -46,8 +46,13 @@ class BaseModel:
         Args: no args
         """
         new_dict = self.__dict__
-        created_at = datetime.isoformat(new_dict.get("created_at"))
-        updated_at = datetime.isoformat(new_dict.get("updated_at"))
+        created_at = new_dict.get("created_at")
+        updated_at = new_dict.get("updated_at")
+        
+        if (type(created_at) != str):
+            created_at = datetime.isoformat(new_dict.get("created_at"))
+        if (type(updated_at) != str):
+            updated_at = datetime.isoformat(new_dict.get("updated_at"))
         new_dict['__class__'] = BaseModel.__name__
         new_dict['created_at'] = created_at
         new_dict['updated_at'] = updated_at
