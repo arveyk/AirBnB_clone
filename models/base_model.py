@@ -20,21 +20,20 @@ class BaseModel:
 
                     else:
                         self.__dict__[key] = value
-            self.create_at = self.__dict__.get("created_at")
-            self.id = self.__dict__.get("id")
-
-
                 #if key not in self.__dict__:
                 #    storage.new(self)                    
+            #self.create_at = self.__dict__.get("created_at")
+            #self.id = self.__dict__.get("id")
+            storage.new(self)
         else:
-            storage.new()
+            storage.new(self)
 
     def __str__(self):
         """ prints unofficial representation of class"""
         return (f"[{BaseModel.__name__}] ({self.id}) ({self.__dict__})")
 
     def __repr__(self):
-        return f('BaseModels')
+        return (f'BaseModels')
 
     def save(self):
         """ Updates the public instance attr updated at """
@@ -47,8 +46,8 @@ class BaseModel:
         Args: no args
         """
         new_dict = self.__dict__
-        created_at = datetime.now().isoformat()
-        updated_at = datetime.now().isoformat()
+        created_at = datetime.isoformat(new_dict.get("created_at"))
+        updated_at = datetime.isoformat(new_dict.get("updated_at"))
         new_dict['__class__'] = BaseModel.__name__
         new_dict['created_at'] = created_at
         new_dict['updated_at'] = updated_at

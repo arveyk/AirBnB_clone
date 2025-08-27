@@ -1,13 +1,6 @@
 #!/usr/bin/python3
 """Defines the FileStorage class."""
 import json
-#from models.base_model import BaseModel
-# from models.user import User
-# from models.state import State
-# from models.city import City
-# from models.place import Place
-# from models.amenity import Amenity
-# from models.review import Review
 
 
 class FileStorage:
@@ -26,13 +19,15 @@ class FileStorage:
 
     def new(self, obj):
         """Set in __objects obj with key <obj_class_name>.id"""
-        ocname = obj.__class__.__name__
-        FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
+        #class_name = obj.__class__.__name__
+        class_name = obj.__class__.__name__
+        FileStorage.__objects["{}.{}".format(class_name, obj.id)] = obj
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
-        odict = FileStorage.__objects
-        objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
+        #odict = FileStorage.__objects
+        #objdict = {objKey: odict[objKey].to_dict() for objKey in odict.keys()}
+        objdict = {objKey: FileStorage.__objects[objKey].to_dict() for objKey in FileStorage.__objects.keys()}
         with open(FileStorage.__file_path, "w") as f:
             json.dump(objdict, f)
 
@@ -41,9 +36,32 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path) as f:
                 objdict = json.load(f)
-                for o in objdict.values():
-                    cls_name = o["__class__"]
-                    del o["__class__"]
-                    self.new(eval(cls_name)(**o))
+                from models.base_model import BaseModel
+                from models.user import User
+                from models.state import State
+                from models.city import City
+                from models.place import Place
+                from models.amenity import Amenity
+                from models.review import Review
+
+                for objAttributes in objdict.values():
+                    cls_name = objAttributes["__class__"]
+                    #del objAttributes["__class__"]
+                    match cls_name:
+                        case "Amenity":
+                            self.new(Amenity(**objAttributes))
+                        case "BaseModel":
+                            self.new(BaseModel(**objAttributes))
+                        case "City":
+                            self.new(City(**objAttributes))
+                        case "BaseModel":
+                            self.new(BaseModel(**objAttributes))
+                        case "Place":
+                            self.new(Place(**objAttributes))
+                        case "Review":
+                            self.new(Review(**objAttributes))
+                        case "User":
+                            self.new(User(**objAttributes))
+                    # self.new((cls_name)(**objAttributes))
         except FileNotFoundError:
             return
