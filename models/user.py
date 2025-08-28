@@ -14,4 +14,12 @@ class User(BaseModel):
     def __init__(self):
         """Initializes the instances/object of the User class
         """
-        super().__init__(self)
+        super().__init__()
+
+    def __str__(self):
+        """ prints unofficial representation of class"""
+        return (f"[{User.__name__}] ({self.id}) ({self.__dict__})")
+ 
+    def __repr__(self): 
+        """Return the Official representation of a class"""
+        return (f'User')
