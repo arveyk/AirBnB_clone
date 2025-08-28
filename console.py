@@ -33,6 +33,7 @@ def parse(arg):
 
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter."""
+    prompt = "(hbnb) "
 
     def console(self, line):
         """ Prints a custom prompt"""
