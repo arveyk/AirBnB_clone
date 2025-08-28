@@ -10,8 +10,8 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
         if kwargs is not None:
             for key, value in kwargs.items():
                 if key != '__class__':
@@ -24,7 +24,6 @@ class BaseModel:
                 #    storage.new(self)                    
             #self.create_at = self.__dict__.get("created_at")
             #self.id = self.__dict__.get("id")
-            storage.new(self)
         else:
             storage.new(self)
 
@@ -45,17 +44,17 @@ class BaseModel:
         instance
         Args: no args
         """
-        new_dict = self.__dict__
-        created_at = new_dict.get("created_at")
-        updated_at = new_dict.get("updated_at")
-        
-        if (type(created_at) != str):
-            created_at = datetime.isoformat(new_dict.get("created_at"))
-        if (type(updated_at) != str):
-            updated_at = datetime.isoformat(new_dict.get("updated_at"))
+        new_dict = {}
         new_dict['__class__'] = BaseModel.__name__
-        new_dict['created_at'] = created_at
-        new_dict['updated_at'] = updated_at
+        
+        for key, value in self.__dict__.items():
+            if key == "created_at":
+                created_at = self.__dict__["created_at"].isoformat()
+            elif key == "updated_at":
+                updated_at = self.__dict__["updated_at"].isoformat()
+            else:
+                new_dict[key] = value
+
         return new_dict
 
     def __ne__(self, other):
