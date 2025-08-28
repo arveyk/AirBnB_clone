@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 """Defines the FileStorage class."""
 import json
-
+# from ...models.user import User
+# from ...models.base_model import BaseModel
+# from ...models.state import State
+# from ...models.city import City
+# from ...models.place import Place
+# from ...models.amenity import Amenity
+# from ...models.review import Review
 
 class FileStorage:
     """Represent an abstracted storage engine.
@@ -66,6 +72,9 @@ class FileStorage:
                             self.new(Review(**objAttributes))
                         case "User":
                             self.new(User(**objAttributes))
-                    # self.new((cls_name)(**objAttributes))
+                for o in objdict.values():
+                    cls_name = o["__class__"]
+                    #del o["__class__"]
+                    self.new(eval(cls_name)(**o))
         except FileNotFoundError:
             return
