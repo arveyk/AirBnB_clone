@@ -9,9 +9,9 @@ class City(BaseModel):
     state_id = ""
     name = ""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ Init of child class"""
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
     def __str__(self):
         """ prints unofficial representation of class"""

@@ -39,7 +39,7 @@ class BaseModel:
         return (f"[{BaseModel.__name__}] ({self.id}) ({self.__dict__})")
 
     def __repr__(self):
-        return (f'BaseModels')
+        return (f'BaseModel')
 
     def save(self):
         """ Updates the public instance attr updated at """
@@ -61,6 +61,7 @@ class BaseModel:
                 updated_at = self.__dict__["updated_at"].isoformat()
             else:
                 new_dict[key] = value
+        new_dict['__class__'] = self.__class__.__name__
 
         return new_dict
 

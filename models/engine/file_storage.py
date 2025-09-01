@@ -25,7 +25,6 @@ class FileStorage:
 
     def new(self, obj):
         """Set in __objects obj with key <obj_class_name>.id"""
-        # class_name = obj.__class__.__name__
         class_name = obj.__class__.__name__
         FileStorage.__objects["{}.{}".format(class_name, obj.id)] = obj
 
@@ -72,9 +71,10 @@ class FileStorage:
                             self.new(Review(**objAttributes))
                         case "User":
                             self.new(User(**objAttributes))
-                for o in objdict.values():
+                comment = """for o in objdict.values():
                     cls_name = o["__class__"]
                     #del o["__class__"]
                     self.new(eval(cls_name)(**o))
+                    """
         except FileNotFoundError:
             return

@@ -9,13 +9,13 @@ class Review(BaseModel):
     user_id = ""
     text = ""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ Child class init method"""
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
     def __str__(self):
         """ prints unofficial representation of class"""
-        return (f"[{City.__name__}] ({self.id}) ({self.__dict__})")
+        return (f"[{Review.__name__}] ({self.id}) ({self.__dict__})")
 
     def __repr__(self):
-        return (f"City")
+        return (f"Review")

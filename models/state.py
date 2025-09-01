@@ -8,6 +8,13 @@ class State(BaseModel):
     """
     name = " "
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ Child init method"""
-        super().__init__(self)
+        super().__init__(*args, **kwargs)
+
+    def __str__(self):
+        """ prints unofficial representation of class"""
+        return (f"[{State.__name__}] ({self.id}) ({self.__dict__})")
+
+    def __repr__(self):
+        return (f"State")

@@ -34,16 +34,15 @@ def parse(arg):
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter."""
     prompt = "(hbnb) "
-
-    def console(self, line):
-        """ Prints a custom prompt"""
-        if line:
-            print("(hbnb)")
-        else:
-            print("(hbnb)")
-
-    def do_EOF(self, line):
-        """prints a newline when prompt is exited"""
+    __classes = {
+            "BaseModel",
+            "User",
+            "State",
+            "City",
+            "Place",
+            "Amenity",
+            "Review"
+            }
 
     def console(self, line):
         """ Prints a custom prompt"""
@@ -58,15 +57,6 @@ class HBNBCommand(cmd.Cmd):
         prompt (str): The command prompt.
         """
         prompt = "(hbnb) "
-        __classes = {
-                "BaseModel",
-                "User",
-                "State",
-                "City",
-                "Place",
-                "Amenity",
-                "Review"
-                }
 
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
@@ -171,7 +161,10 @@ class HBNBCommand(cmd.Cmd):
         argl = parse(arg)
         count = 0
         for obj in storage.all().values():
-            if argl[0] == obj.__class__.__name__:
+            if len(argl) > 0:
+                if argl[0] == obj.__class__.__name__:
+                    count += 1
+            else:
                 count += 1
         print(count)
 
