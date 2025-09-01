@@ -11,16 +11,16 @@ class Amenity(BaseModel):
     """
     name = ""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializing function/method
         Args: None
         Return None
         """
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
-     def __str__(self):
+    def __str__(self):
         """ prints unofficial representation of class"""
-        return (f"[{City.__name__}] ({self.id}) ({self.__dict__})")
+        return (f"[{Amenity.__name__}] ({self.id}) ({self.__dict__})")
 
     def __repr__(self):
-        return (f"City")
+        return (f"Amenity")

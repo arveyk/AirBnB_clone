@@ -52,7 +52,7 @@ class BaseModel:
         Args: no args
         """
         new_dict = {}
-        new_dict['__class__'] = BaseModel.__name__
+        new_dict['__class__'] = self.__class__.__name__
         
         for key, value in self.__dict__.items():
             if key == "created_at":

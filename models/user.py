@@ -11,10 +11,10 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializes the instances/object of the User class
         """
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
     def __str__(self):
         """ prints unofficial representation of class"""
