@@ -1,13 +1,20 @@
 #!/usr/bin/python3
 """ Class City """
 
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, ForeignKey, Integer, String
+from models.state import State
+from sqlalchemy.orm import relationship
 
 
-class City(BaseModel):
+class City(BaseModel, Base):
     """Class City"""
-    state_id = ""
-    name = ""
+    __tablename__ = "cities"
+    id = Column(String(60), primary_key=True)
+    name = Column(String(128))
+    state_id = Column(String(60), ForeignKey("states.id"))
+
+    state = relationship("State", back_populates="cities")
 
     def __init__(self, *args, **kwargs):
         """ Init of child class"""
